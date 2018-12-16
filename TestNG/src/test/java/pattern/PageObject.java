@@ -65,6 +65,10 @@ public class PageObject {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    public void afterTest() {
+        driver.quit();
+    }
+
     public void getPage() {
         driver.get(baseUrl);
     }

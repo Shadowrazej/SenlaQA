@@ -1,5 +1,7 @@
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pattern.PageObject;
@@ -56,5 +58,10 @@ public class HomeTask {
         pageObject.typeMessageInSearch("Printed Dress").submitSearch().checkDeletedOrder("Printed Dress");
 
         //I want to add a price check, because there are several things with the same name.
+    }
+
+    @AfterClass
+    public void shutDown() {
+        pageObject.afterTest();
     }
 }
