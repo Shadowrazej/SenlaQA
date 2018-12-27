@@ -21,6 +21,7 @@ public class AddUser {
     private String password = "#systemUser_password";
     private String confirmPassword = "#systemUser_confirmPassword";
     private String saveButton = "#btnSave";
+    private String cancelButton = "#btnCancel";
     private String passwordAlert = "li[class='passwordDiv']:nth-child(6) > span";
 
     //selectors for asserts
@@ -70,7 +71,7 @@ public class AddUser {
         getElement(adminMenu).click();
         getElement(addUserButton).click();
         getElement(employeeName).sendKeys("Fiona Grace");
-        getElement(userName).sendKeys("shadowrazej16");
+        getElement(userName).sendKeys("shadowrazej" + (int)(Math.random() * 100));
         getElement(password).sendKeys("qwerty123");
         getElement(confirmPassword).sendKeys("qwerty123");
         (new WebDriverWait(driver, 5)).until(ExpectedConditions.attributeContains(driver.findElement(By.cssSelector(passwordAlert)), "style", "display: none;"));
@@ -85,6 +86,8 @@ public class AddUser {
         Assert.assertTrue("Status field is not displayed", getElement(status).isDisplayed());
         Assert.assertTrue("Password field is not displayed", getElement(password).isDisplayed());
         Assert.assertTrue("Confirm Password field is not displayed", getElement(confirmPassword).isDisplayed());
+        Assert.assertTrue("Save button is not displayed", getElement(saveButton).isDisplayed());
+        Assert.assertTrue("Cancel button is not displayed", getElement(cancelButton).isDisplayed());
         refresh();
     }
 

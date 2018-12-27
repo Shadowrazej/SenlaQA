@@ -39,7 +39,7 @@ public class Orange {
         addUser.checkUserFields();
         addUser.addUser();
         jobTitles.deleteJobTitles();
-        addCandidate.addCandidate();
+//        addCandidate.addCandidate();
         dashboard.checkDashboard();
         pim.checkPIM();
         logOut.logOut();
